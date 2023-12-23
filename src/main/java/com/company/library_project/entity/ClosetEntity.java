@@ -1,6 +1,7 @@
 package com.company.library_project.entity;
 
 import com.company.library_project.entity.base.StringBaseEntity;
+import com.company.library_project.entity.profile.ProfileEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +14,7 @@ import java.util.List;
 @Table(name = "closet")
 public class ClosetEntity  extends StringBaseEntity {
 
-    @Column(name = "wardrobe_count")
-    private int wardrobeCount = 0;
-
-    @OneToMany(mappedBy = "closetEntity")
+    @OneToMany(mappedBy = "closetEntity", fetch = FetchType.EAGER)
     private List<WardrobeEntity> wardrobeEntities;
 
     @ManyToOne
@@ -26,19 +24,10 @@ public class ClosetEntity  extends StringBaseEntity {
     @Column(name = "floor_id")
     private String floorId;
 
-    public boolean increaseClosetCount() {
-        if (wardrobeCount + 1 <= 10) {
-            wardrobeCount++;
-            return true;
-        }
-        return false;
-    }
+    @ManyToOne
+    @JoinColumn(name = "owner_id", insertable = false, updatable = false)
+    private ProfileEntity profileEntity;
 
-    public boolean decreaseClosetCount() {
-        if (wardrobeCount - 1 >= 0) {
-            wardrobeCount--;
-            return true;
-        }
-        return false;
-    }
+    @Column(name = "owner_id")
+    private String ownerId;
 }

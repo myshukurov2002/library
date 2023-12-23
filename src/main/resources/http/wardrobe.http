@@ -1,39 +1,38 @@
 ### CREATE
-POST http://localhost:8080/api/v1/closet/create
+POST http://localhost:8080/api/v1/wardrobe/create
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 {
-  "floorId": "c0ae3cc6-d3a7-437d-b2a7-9c3f86c1593b"
+  "closetId": "5c9498ab-5369-4332-99a5-1a6b5cb0651b"
 }
 
 ### UPDATE
-PUT http://localhost:8080/api/v1/closet/update/e86be8ba-60a0-4e7d-aaff-d97febe47a5e
+PUT http://localhost:8080/api/v1/wardrobe/update/3285c518-49b7-4b70-90fc-7d376a12c3f0
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 {
-  "floorId": "asdssd-d3a7-437d-b2a7-9c3f86c1593b"
+  "closetId": "ddea91aa-742e-4131-9b6b-7b6ba488232e"
 }
 
-
 ### DELETE
-DELETE http://localhost:8080/api/v1/closet/delete/5c9498ab-5369-4332-99a5-1a6b5cb0651b
+DELETE http://localhost:8080/api/v1/wardrobe/delete/e86be8ba-60a0-4e7d-aaff-d97febe47a5e
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 ### GET BY ID
-GET http://localhost:8080/api/v1/closet/getById/1
+GET http://localhost:8080/api/v1/wardrobe/getById/1
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 ### GET LIST
-GET http://localhost:8080/api/v1/closet/getList
+GET http://localhost:8080/api/v1/wardrobe/getList
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 ### PAGING
-GET http://localhost:8080/api/v1/closet/paging
+GET http://localhost:8080/api/v1/wardrobe/paging
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
-### PAGING BY FLOOR ID
-GET http://localhost:8080/api/v1/closet/paging/by-floorId/1
+### PAGING BY CLOSET ID
+GET http://localhost:8080/api/v1/wardrobe/paging/by-closetId/1d5552cd-4645-450e-a78c-7f908ee14b7a
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
