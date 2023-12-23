@@ -23,4 +23,12 @@ public class ProfileRoleEntity extends StringBaseEntity {
     @Column(name = "profile_id")
     private String profileId;
 
+    public ProfileRoleEntity(ProfileRole profileRole, String profileId) {
+        this.profileRole = profileRole;
+        this.profileId = profileId;
+    }
+
+    public ProfileRoleEntity() {
+
+    }
 }

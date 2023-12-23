@@ -1,9 +1,9 @@
 
 package com.company.library_project.util;
 
-import com.company.config.security.details.CustomUserDetails;
-import com.company.entity.ProfileEntity;
-import com.company.enums.Language;
+import com.company.library_project.config.security.details.CustomUserDetails;
+import com.company.library_project.entity.ProfileEntity;
+import com.company.library_project.enums.Language;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 

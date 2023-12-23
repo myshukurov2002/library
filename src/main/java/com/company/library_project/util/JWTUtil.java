@@ -23,7 +23,7 @@ public class JWTUtil {
         jwtBuilder.claim("roles", roles);
 
         jwtBuilder.setExpiration(new Date(System.currentTimeMillis() + (tokenLiveTime)));
-        jwtBuilder.setIssuer("applicant PORTAL");
+        jwtBuilder.setIssuer("library PORTAL");
         return jwtBuilder.compact();
     }
     public static JwtDTO decode(String token) {
@@ -44,28 +44,28 @@ public class JWTUtil {
         }
     }
 
-//    public static String encodePhoneJwt(String profileId) { //TODO
-//        JwtBuilder jwtBuilder = Jwts.builder();
-//        jwtBuilder.setIssuedAt(new Date());
-//        jwtBuilder.signWith(SignatureAlgorithm.HS512, secretKey);
-//
-//        jwtBuilder.claim("id", profileId);
-//
-//        jwtBuilder.setExpiration(new Date(System.currentTimeMillis() + (roleTokenLiveTime)));
-//        jwtBuilder.setIssuer("applicant PORTAL");
-//        return jwtBuilder.compact();
-//    }
-//
-//    public static JwtDTO decodeEmailJwt(String token) {
-//        try {
-//            JwtParser jwtParser = Jwts.parser();
-//            jwtParser.setSigningKey(secretKey);
-//            Jws<Claims> jws = jwtParser.parseClaimsJws(token);
-//            Claims claims = jws.getBody();
-//            String id = (String) claims.get("id");
-//            return new JwtDTO(id);
-//        } catch (JwtException e) {
-//            throw new UnAuthorizedException("Your session expired");
-//        }
-//    }
+    public static String encodeEmailJwt(String email) {
+        JwtBuilder jwtBuilder = Jwts.builder();
+        jwtBuilder.setIssuedAt(new Date());
+        jwtBuilder.signWith(SignatureAlgorithm.HS512, secretKey);
+
+        jwtBuilder.claim("email", email);
+
+        jwtBuilder.setExpiration(new Date(System.currentTimeMillis() + (roleTokenLiveTime)));
+        jwtBuilder.setIssuer("library PORTAL");
+        return jwtBuilder.compact();
+    }
+    public static JwtDTO decodeEmailJwt(String token) {
+        try {
+            JwtParser jwtParser = Jwts.parser();
+            jwtParser.setSigningKey(secretKey);
+            Jws<Claims> jws = jwtParser.parseClaimsJws(token);
+            Claims claims = jws.getBody();
+            String email = (String) claims.get("email");
+            return new JwtDTO(email);
+        } catch (JwtException e) {
+            throw new UnAuthorizedException("Your session expired");
+        }
+    }
+
 }

@@ -42,7 +42,7 @@ public class ProfileEntity extends StringBaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private ProfileStatus status = ProfileStatus.ACTIVE;
+    private ProfileStatus status = ProfileStatus.REGISTRATION;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "lang")

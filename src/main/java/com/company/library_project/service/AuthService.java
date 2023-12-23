@@ -1,21 +1,24 @@
 package com.company.library_project.service;
 
-import com.company.MD5Util;
-import com.company.dto.ApiResponse;
-import com.company.dto.ProfileDTO;
-import com.company.dto.auth.AuthDTO;
-import com.company.dto.auth.RegistrationDTO;
-import com.company.entity.ProfileEntity;
-import com.company.entity.ProfileRoleEntity;
-import com.company.enums.Language;
-import com.company.enums.ProfileRole;
-import com.company.repository.ProfileRepository;
-import com.company.repository.ProfileRoleRepository;
-import com.company.util.JWTUtil;
+import com.company.library_project.dto.ApiResponse;
+import com.company.library_project.dto.ProfileDTO;
+import com.company.library_project.dto.auth.AuthDTO;
+import com.company.library_project.dto.auth.RegistrationDTO;
+import com.company.library_project.entity.ProfileEntity;
+import com.company.library_project.entity.ProfileRoleEntity;
+import com.company.library_project.enums.Language;
+import com.company.library_project.enums.ProfileRole;
+import com.company.library_project.enums.ProfileStatus;
+import com.company.library_project.repository.EmailHistoryRepository;
+import com.company.library_project.repository.ProfileRepository;
+import com.company.library_project.repository.ProfileRoleRepository;
+import com.company.library_project.util.JWTUtil;
+import com.company.library_project.util.MD5Util;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +31,10 @@ public class AuthService {
     private ProfileRoleRepository profileRoleRepository;
     @Autowired
     private ResourceBundleService resourceBundleService;
+    @Autowired
+    private EmailHistoryRepository emailHistoryRepository;
+    @Autowired
+    private MailSenderService mailSenderService;
 
     private ProfileDTO toDTO(ProfileEntity entity) {
         ProfileDTO dto = new ProfileDTO();
@@ -55,50 +62,49 @@ public class AuthService {
         entity.setThirdName(reg.getThirdName());
         entity.setEmail(reg.getEmail());
         entity.setBirthDate(reg.getBirthDate());
-        entity.setNationality(reg.getNationality());
         entity.setPhone(reg.getPhone());
         entity.setStatus(reg.getStatus());
         entity.setPassword(MD5Util.encode(reg.getPassword()));
 
+        entity.setProfileRoleList(List.of(new ProfileRoleEntity(ProfileRole.USER, entity.getId())));
+
         return entity;
     }
 
-    public ApiResponse<?> login(AuthDTO auth, Language lang) {
-        Optional<ProfileEntity> optionalProfile = profileRepository
-                .findByPhone(auth.getPhone());
-        if (optionalProfile.isPresent()) {
-            ProfileEntity profileEntity = optionalProfile.get();
-            if (profileEntity.getPassword().equals(MD5Util.encode(auth.getPassword()))) {
-                log.warn("login " + auth.getPhone());
-
-                return new ApiResponse<>(true, toDTO(profileEntity));
-            }
-            return new ApiResponse<>(false, resourceBundleService.getMessage("incorrect.password", lang));
+    public ApiResponse<?> login(AuthDTO dto, Language lang) {
+        Optional<ProfileEntity> byEmail = profileRepository.findByEmail(dto.getEmail());
+        if (byEmail.isPresent()) {
+            ProfileEntity entity = byEmail.get();
+            log.info("login " + dto.getEmail());
+            return new ApiResponse<>(true, toDTO(entity));
         }
         return new ApiResponse<>(false, resourceBundleService.getMessage("item.not.found", lang));
     }
 
-    public ApiResponse<?> registration(RegistrationDTO reg, Language lang) {
-        Optional<ProfileEntity> optionalProfile = profileRepository
-                .findByPhone(reg.getPhone());
+    public ApiResponse<?> registration(RegistrationDTO dto, Language lang) {
+        Optional<ProfileEntity> optionalProfile = profileRepository.findByEmail(dto.getEmail());
         if (optionalProfile.isPresent()) {
-            return new ApiResponse<>(false, resourceBundleService.getMessage("phone.already.exists", lang));
+            if (optionalProfile.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
+                profileRepository.delete(optionalProfile.get()); // delete
+            } else {
+                return new ApiResponse<>(false, resourceBundleService.getMessage("email.already.exists", lang) + "try again");
+            }
         }
-        ProfileEntity profileEntity = toEntity(reg);
-        profileEntity.setLang(lang);
 
-        ProfileRoleEntity role = new ProfileRoleEntity();
-        role.setProfileRole(ProfileRole.USER);
-        role.setProfileId(profileEntity.getId());
+        Long count = emailHistoryRepository.countAllByEmailAndCreatedDateAfter(dto.getEmail(), LocalDateTime.now().minusMinutes(1));
+        if (count > 4) {
+            return new ApiResponse<>(false, resourceBundleService.getMessage("try.again.around.1minute", lang));
+        }
 
-//        List<ProfileRoleEntity> profileRoleEntities = new ArrayList<>();
-//        profileRoleEntities.add(role);
+        ProfileEntity entity = new ProfileEntity();
+        entity.setFirstName(dto.getFirstName());
+        entity.setSecondName(dto.getSecondName());
+        entity.setEmail(dto.getEmail());
+        entity.setPassword(MD5Util.encode(dto.getPassword()));
+        entity.setStatus(ProfileStatus.REGISTRATION);
+        profileRepository.save(entity);
 
-        profileRepository.save(profileEntity);
-        profileRoleRepository.save(role);
-
-        log.info("registration " + reg.getPhone());
-
-        return new ApiResponse<>(true, resourceBundleService.getMessage("success.registration", lang), toDTO(profileEntity));
+        log.info("registration  " + dto.getEmail());
+        return mailSenderService.sendEmailVerification(dto.getEmail());
     }
 }

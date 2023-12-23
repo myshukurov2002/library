@@ -23,15 +23,16 @@ public class RegistrationDTO {
     @NotBlank(message = "SECOND NAME SHOULD NOT BE BLANK!!!")
     private String secondName;
 
-    @NotNull(message = "THIRD NAME SHOULD NOT BE NULL!!!")
-    @NotBlank(message = "THIRD NAME SHOULD NOT BE BLANK!!!")
+//    @NotNull(message = "THIRD NAME SHOULD NOT BE NULL!!!")
+//    @NotBlank(message = "THIRD NAME SHOULD NOT BE BLANK!!!")
     private String thirdName; // father's name
 
+    @NotNull(message = "PHONE SHOULD NOT BE NULL!!!")
     @Email(message = "INVALID EMAIL FORMAT!!!")
     private String email;
 
-    @NotNull(message = "PHONE SHOULD NOT BE NULL!!!")
-    @NotBlank(message = "PHONE SHOULD NOT BE BLANK!!!")
+//    @NotNull(message = "PHONE SHOULD NOT BE NULL!!!")
+//    @NotBlank(message = "PHONE SHOULD NOT BE BLANK!!!")
     @Pattern(regexp = "\\+998[1-9][0-9]{9}", message = "INVALID PHONE FORMAT!!!")
     private String phone;
 
