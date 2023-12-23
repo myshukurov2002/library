@@ -2,7 +2,7 @@ package com.company.library_project.service;
 
 
 import com.company.library_project.dto.ProfileDTO;
-import com.company.library_project.entity.ProfileEntity;
+import com.company.library_project.entity.profile.ProfileEntity;
 import com.company.library_project.exp.ItemNotFoundException;
 import com.company.library_project.repository.ProfileRepository;
 import com.company.library_project.util.MD5Util;

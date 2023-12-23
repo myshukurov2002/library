@@ -1,6 +1,6 @@
 package com.company.library_project.dto;
 
-import com.company.library_project.entity.ProfileRoleEntity;
+import com.company.library_project.entity.profile.ProfileRoleEntity;
 import com.company.library_project.enums.Language;
 import com.company.library_project.enums.ProfileRole;
 import com.company.library_project.enums.ProfileStatus;

@@ -1,5 +1,5 @@
 package com.company.library_project.repository;
-import com.company.library_project.entity.ProfileEntity;
+import com.company.library_project.entity.profile.ProfileEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

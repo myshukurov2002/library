@@ -1,7 +1,7 @@
 package com.company.library_project.repository;
 
 
-import com.company.library_project.entity.EmailAddressEntity;
+import com.company.library_project.entity.profile.EmailAddressEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmailAddressRepository extends JpaRepository<EmailAddressEntity, Long> {

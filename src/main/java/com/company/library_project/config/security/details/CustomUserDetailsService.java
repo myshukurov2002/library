@@ -1,6 +1,6 @@
 package com.company.library_project.config.security.details;
 
-import com.company.library_project.entity.ProfileEntity;
+import com.company.library_project.entity.profile.ProfileEntity;
 import com.company.library_project.enums.ProfileRole;
 import com.company.library_project.exp.AppBadRequestException;
 import com.company.library_project.repository.ProfileRepository;

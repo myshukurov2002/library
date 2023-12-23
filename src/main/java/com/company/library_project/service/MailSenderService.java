@@ -2,7 +2,7 @@ package com.company.library_project.service;
 
 
 import com.company.library_project.dto.ApiResponse;
-import com.company.library_project.entity.EmailHistoryEntity;
+import com.company.library_project.entity.profile.EmailHistoryEntity;
 import com.company.library_project.repository.EmailAddressRepository;
 import com.company.library_project.repository.EmailHistoryRepository;
 import com.company.library_project.util.HTMLUtil;

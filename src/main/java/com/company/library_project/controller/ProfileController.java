@@ -16,15 +16,14 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
-
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('SUPER_ADMIN')")
     @DeleteMapping("/admin/delete/by-date/{id}")
     public ResponseEntity<String> delete(@PathVariable String id) {
         String response = profileService.delete(id);
         return ResponseEntity.ok(response);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('SUPER_ADMIN')")
     @GetMapping("/admin/all")
     public ResponseEntity<Page<ProfileDTO>> getAll(@RequestParam(defaultValue = "0") Integer page,
                                                    @RequestParam(defaultValue = "5") Integer size) {
@@ -32,7 +31,8 @@ public class ProfileController {
         return ResponseEntity.ok(profileDTOPage);
     }
 
-    @GetMapping("/open/by-id/{id}")
+    @PreAuthorize("hasRole('SUPER_ADMIN')")
+    @GetMapping("/admin/by-id/{id}")
     public ResponseEntity<?> getById(@PathVariable String id) {
         ProfileDTO profileDTO = profileService.getById(id);
         return ResponseEntity.ok(profileDTO);

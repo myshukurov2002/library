@@ -1,4 +1,4 @@
-package com.company.library_project.entity;
+package com.company.library_project.entity.profile;
 
 import com.company.library_project.entity.base.StringBaseEntity;
 import com.company.library_project.enums.Language;
@@ -50,5 +50,4 @@ public class ProfileEntity extends StringBaseEntity {
 
     @OneToMany(mappedBy = "profileEntity", fetch = FetchType.EAGER)
     private List<ProfileRoleEntity> profileRoleList;
-
 }

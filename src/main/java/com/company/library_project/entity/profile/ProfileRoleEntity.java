@@ -1,4 +1,4 @@
-package com.company.library_project.entity;
+package com.company.library_project.entity.profile;
 
 import com.company.library_project.entity.base.StringBaseEntity;
 import com.company.library_project.enums.ProfileRole;
@@ -29,6 +29,5 @@ public class ProfileRoleEntity extends StringBaseEntity {
     }
 
     public ProfileRoleEntity() {
-
     }
 }

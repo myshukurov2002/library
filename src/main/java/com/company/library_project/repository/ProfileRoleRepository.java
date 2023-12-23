@@ -1,6 +1,6 @@
 package com.company.library_project.repository;
 
-import com.company.library_project.entity.ProfileRoleEntity;
+import com.company.library_project.entity.profile.ProfileRoleEntity;
 import com.company.library_project.enums.ProfileRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

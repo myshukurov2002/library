@@ -24,7 +24,7 @@ WHERE NOT EXISTS(SELECT
 INSERT INTO profile_role
 (visibility, id, created_date, profile_id, role)
 SELECT
-    true, '2',now(), '1', 'ADMIN'
+    true, '2',now(), '1', 'MODERATOR'
 WHERE NOT EXISTS(SELECT
                  FROM profile_role
                  WHERE id = '2');
@@ -32,7 +32,7 @@ WHERE NOT EXISTS(SELECT
 INSERT INTO profile_role
 (visibility, id, created_date, profile_id, role)
 SELECT
-    true, '3',now(), '1', 'MIN_ADMIN'
+    true, '3',now(), '1', 'USER'
 WHERE NOT EXISTS(SELECT id
                  FROM profile_role
                  WHERE id = '3');
