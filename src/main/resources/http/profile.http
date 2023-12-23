@@ -1,0 +1,9 @@
+POST http://localhost:8080/api/v1/profile/import
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDE1ODQyMTMsImlkIjoiMSIsImV4cCI6MTcwMjQ0ODIxMywiaXNzIjoiUEVUSVRJT05FUiBQT1JUQUwifQ.9bI__Uji5-2kWYZia2s2NYlCp7j9sD9jBZ9pbr7TeInyOgObpzVstnxDffYhGMVQg2cVHpSMFQeCqNvBxJT8cQ
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="excel"; filename="profiles.xlsx"
+
+< C:\Users\shuku\Downloads\profiles.xlsx
+

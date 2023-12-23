@@ -1,0 +1,34 @@
+###  LOGIN
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "phone": "123",
+  "password": "123"
+}
+
+
+###
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "phone": "+998902812346",
+  "password": "string"
+}
+
+### REGISTRATION
+POST http://localhost:8080/api/v1/auth/registration
+Content-Type: application/json
+
+{
+  "firstName": "Quzivoy",
+  "secondName": "Buriyev",
+  "thirdName": "Sheraliyevich",
+  "email": "quzi@gmail.com",
+  "phone": "998902812344",
+  "password": "123",
+  "birthDate": "2023-11-25",
+  "nationality": "uzbek",
+  "status": "ACTIVE"
+}
