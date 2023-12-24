@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface BookRepository extends JpaRepository<BookEntity, String> {
     Page<BookEntity> findAllByWardrobeId(String wardrobeId, Pageable pageable);
 //    @Query(value = "SELECT *" +
@@ -15,4 +17,6 @@ public interface BookRepository extends JpaRepository<BookEntity, String> {
     Page<BookEntity> findAllByAuthorContaining(String author, Pageable pageable);
 
     Page<BookEntity> findAllByTitleContaining(String title, Pageable pageable);
+
+    Optional<BookEntity> findAllByUniqueNameAndVisibilityTrue(String uniqueName);
 }
