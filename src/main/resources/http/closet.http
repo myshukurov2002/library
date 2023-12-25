@@ -4,7 +4,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 {
-  "floorId": "c0ae3cc6-d3a7-437d-b2a7-9c3f86c1593b"
+  "floorId": "059502d6-20f2-4551-bf03-7c090cdff0c0"
 }
 
 ### UPDATE

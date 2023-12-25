@@ -6,26 +6,49 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsI
 {
   "title": "Sample Book Title",
   "author": "Sample Author",
-  "publishedDate": "2023-01-01"
+  "publishedDate": "2023-01-01",
+  "wardrobeId": "bfeb61ba-af7c-47da-b990-dd7fb04d2a1a"
 }
 
 
 ### UPDATE
-PUT http://localhost:8080/api/v1/book/update/3285c518-49b7-4b70-90fc-7d376a12c3f0
+PUT http://localhost:8080/api/v1/book/update/c41fc9e8-833f-4e42-83fe-321ce85b22a5
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 {
   "title": "Sample Book Title 2",
   "author": "Sample Author 2",
-  "publishedDate": "2023-01-02"
+  "publishedDate": "2023-01-02",
+  "wardrobeId": "bfeb61ba-af7c-47da-b990-dd7fb04d2a1a"
 }
+
+### BOOKING
+PUT http://localhost:8080/api/v1/book/booking/9c8f0fda
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
+
+### TAKE BOOK
+PUT http://localhost:8080/api/v1/book/takeBook/9c8f0fda
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
+
+
+### RETURN BOOK
+PUT http://localhost:8080/api/v1/book/returnBook/9c8f0fda
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
+
+
+
+
 ### DELETE
 DELETE http://localhost:8080/api/v1/book/delete/e86be8ba-60a0-4e7d-aaff-d97febe47a5e
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 ### GET BY ID
 GET http://localhost:8080/api/v1/book/getById/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
+
+### GET BY UNIQUE NAME
+GET http://localhost:8080/api/v1/book/getByUniqueName/1
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 ### GET LIST

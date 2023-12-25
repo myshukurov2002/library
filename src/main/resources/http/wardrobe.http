@@ -4,7 +4,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDMzNjA0MzUsImlkIjoiMSIsInJvbGVzIjpbIlNVUEVSX0FETUlOIiwiTU9ERVJBVE9SIiwiVVNFUiJdLCJleHAiOjE3MDQyMjQ0MzUsImlzcyI6ImxpYnJhcnkgUE9SVEFMIn0.6eFw-Xw1mM_pYrgVJOkAImqj5BtMfkJB-aX7yFLCxH1mYUnPrP_ILypuMGov4oUMzozHZmd-gm6BdsCaq2oxnA
 
 {
-  "closetId": "5c9498ab-5369-4332-99a5-1a6b5cb0651b"
+  "closetId": "8c4d7bd1-db35-41fc-ae8b-87ecf7666de4"
 }
 
 ### UPDATE

@@ -6,7 +6,7 @@ import com.company.library_project.dto.ClosetDTO;
 import com.company.library_project.entity.ClosetEntity;
 import com.company.library_project.entity.FloorEntity;
 import com.company.library_project.exp.ItemNotFoundException;
-import com.company.library_project.re.ClosetRepository;
+import com.company.library_project.repository.ClosetRepository;
 import com.company.library_project.repository.FloorRepository;
 import com.company.library_project.util.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;

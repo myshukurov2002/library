@@ -1,4 +1,4 @@
-package com.company.library_project.config.security;
+package com.company.library_project.config;
 
 import com.company.library_project.repository.BookRepository;
 import com.company.library_project.repository.TakenBookRepository;
@@ -7,14 +7,17 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BookingAutoExpired {
+public class BookingExpiredScheduled {
     @Autowired
     private BookRepository bookRepository;
     @Autowired
     private TakenBookRepository takenBookRepository;
-    // Run the task every day at midnight for BOOK STATUS = BOOKING
-    @Scheduled(cron = "0 0 0 * * *")
+
+    // Run the task every hour for BOOK and TakenBOok STATUS = BOOKING and time expring
+    @Scheduled(cron = "0 0 * * * *")
     public void bookingAutoExpired() {
-        fileService.deleteExpiredFilesAndImages();
+        bookRepository.updateAllByBookingDayIsBeforeNow();
+        takenBookRepository.updateAllByBookingDayIsBeforeNow();
     }
+
 }

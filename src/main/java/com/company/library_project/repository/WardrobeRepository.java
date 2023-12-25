@@ -1,4 +1,4 @@
-package com.company.library_project.re;
+package com.company.library_project.repository;
 
 import com.company.library_project.entity.WardrobeEntity;
 import org.springframework.data.domain.Page;
