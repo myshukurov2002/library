@@ -88,4 +88,16 @@ public class FloorController {
                                                   @RequestParam(defaultValue = "30") int size) {
         return ResponseEntity.ok(floorService.pagingByFloorNumber(floorNumber, page, size));
     }
+
+    @GetMapping("/getEmptyPlacesByFloorNumber/{floorNumber}")
+    @Operation(summary = "getById floor 🏣", description = "this api used for floor get Empty Places By Id")
+    @PreAuthorize("hasRole('MODERATOR')")
+    public ResponseEntity<ApiResponse<?>> getEmptyPlacesByFloorNumber(@PathVariable Integer floorNumber) {
+        ApiResponse<?> response = floorService.getEmptyPlacesByFloorNumber(floorNumber);
+        if (response.getStatus()) {
+            return ResponseEntity.ok(response);
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
 }
